@@ -84,6 +84,13 @@ const nextISSTimesForMyLocation = function(callback) {
 
 }
 
+const printFlyBys = function (flybys) {
+  console.log("Here are the next fly-over times:");
+  for (let flyby of flybys) {
+    const date = new Date(0)
+    date.setUTCSeconds(flyby.risetime);
+    console.log(date, `for ${flyby.duration} seconds`)
+  }
+}
 
-
-module.exports = { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes, nextISSTimesForMyLocation };
+module.exports = { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes, nextISSTimesForMyLocation, printFlyBys };
